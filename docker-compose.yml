@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  trading-analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: trading-analyzer:latest
+    container_name: trading-analyzer
+    restart: unless-stopped
+
+    # 环境变量配置
+    environment:
+      # API密钥 (可通过.env文件或直接设置)
+      - TWELVE_DATA_API_KEY=${TWELVE_DATA_API_KEY:-f5491ce160e64101a960e19eb8363f38}
+      - ALPHA_VANTAGE_API_KEY=${ALPHA_VANTAGE_API_KEY:-IUO07N60XUPUHNTL}
+
+      # Telegram配置
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-8450500469:AAHQ_uqLZ0Qf1U9Ff5V-_5OHu7Arn8_2o6Y}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID:-@jht1983_bot}
+
+      # 代理设置 (如需要)
+      - PROXY_URL=${PROXY_URL:-}
+
+      # 分析配置
+      - ANALYSIS_INTERVAL_MINUTES=${ANALYSIS_INTERVAL_MINUTES:-30}
+      - CONFIDENCE_THRESHOLD=${CONFIDENCE_THRESHOLD:-60}
+
+      # 时区
+      - TZ=Asia/Shanghai
+
+    # 端口映射
+    ports:
+      - "8080:8080"
+
+    # 数据卷挂载
+    volumes:
+      - ./signals:/app/signals
+      - ./logs:/app/logs
+
+    # 健康检查
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 60s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+
+    # 日志配置
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# 可选: 使用外部网络
+# networks:
+#   default:
+#     external:
+#       name: my-network

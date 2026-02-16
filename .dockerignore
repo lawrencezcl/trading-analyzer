@@ -1,0 +1,59 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.pid
+logs/
+
+# Local data (will be mounted as volumes)
+# signals/  # 保留signals目录用于初始数据
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+*.md
+!README.md
+
+# Service files (not needed in container)
+trading_analyzer.service
+
+# Test files
+tests/
+*.test.py
+test_*.py
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files (security)
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

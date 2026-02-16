@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="1800">
+    <title>蔡森技术分析交易信号 - 2026-02-16 13:18</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #eee; min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px; margin-bottom: 20px; }
+        .header h1 { color: #ffd700; font-size: 2em; margin-bottom: 10px; }
+        .header .time { color: #888; }
+        .stats { display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-value { font-size: 2em; font-weight: bold; }
+        .stat-label { color: #888; font-size: 0.9em; }
+        .buy { color: #00ff88; }
+        .sell { color: #ff6b6b; }
+        .hold { color: #ffd93d; }
+
+        .signals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .signal-card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 20px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s; }
+        .signal-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.3); }
+        .signal-card.buy-signal { border-left: 4px solid #00ff88; }
+        .signal-card.sell-signal { border-left: 4px solid #ff6b6b; }
+        .signal-card.hold-signal { border-left: 4px solid #ffd93d; }
+
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .symbol-name { font-size: 1.3em; font-weight: bold; }
+        .signal-badge { padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+        .signal-badge.buy { background: rgba(0,255,136,0.2); color: #00ff88; }
+        .signal-badge.sell { background: rgba(255,107,107,0.2); color: #ff6b6b; }
+        .signal-badge.hold { background: rgba(255,217,61,0.2); color: #ffd93d; }
+
+        .price { font-size: 1.8em; font-weight: bold; margin-bottom: 10px; }
+        .pattern { color: #00d4ff; margin-bottom: 15px; }
+        .confidence-bar { background: rgba(255,255,255,0.1); border-radius: 10px; height: 20px; margin: 10px 0; overflow: hidden; }
+        .confidence-fill { height: 100%; border-radius: 10px; transition: width 0.5s; }
+        .confidence-fill.high { background: linear-gradient(90deg, #00ff88, #00d4ff); }
+        .confidence-fill.medium { background: linear-gradient(90deg, #ffd93d, #ff9f43); }
+        .confidence-fill.low { background: linear-gradient(90deg, #ff6b6b, #ee5a5a); }
+
+        .details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .detail-item { background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; }
+        .detail-label { color: #888; font-size: 0.8em; }
+        .detail-value { font-weight: bold; margin-top: 3px; }
+
+        .indicators { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .indicator-row { display: flex; justify-content: space-between; margin: 5px 0; }
+
+        .footer { text-align: center; padding: 20px; color: #666; margin-top: 30px; }
+        .alert { background: rgba(255,107,107,0.2); border: 1px solid #ff6b6b; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 蔡森技术分析交易信号</h1>
+            <div class="time">更新时间: 2026-02-16 13:18:03 | 下次更新: 13:48</div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value buy">1</div>
+                    <div class="stat-label">买入信号</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value sell">5</div>
+                    <div class="stat-label">卖出信号</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value hold">0</div>
+                    <div class="stat-label">持有/观望</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert">
+            ⚠️ <strong>活跃交易信号</strong>: 黄金 (BUY), 比特币 (SELL), 以太坊 (SELL), 标普500ETF (SELL), 纳斯达克100ETF (SELL), 罗素2000ETF (SELL)
+        </div>
+
+        <div class="signals-grid">
+
+            <div class="signal-card buy-signal">
+                <div class="card-header">
+                    <div class="symbol-name">黄金</div>
+                    <div class="signal-badge buy">BUY</div>
+                </div>
+                <div class="price">$4,984.1788</div>
+                <div class="pattern">🔸 蔡森形态: W底(双底)</div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill high" style="width: 70%"></div>
+                </div>
+                <small>置信度: 70%</small>
+
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-label">📍 入场区间</div>
+                        <div class="detail-value">4976.70 - 4984.18</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🎯 目标位</div>
+                        <div class="detail-value">5083.86 / 5233.39</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🛑 止损位</div>
+                        <div class="detail-value">4877.16</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">⏱️ 时间框架</div>
+                        <div class="detail-value">1H</div>
+                    </div>
+                </div>
+
+                <div class="indicators">
+                    <div class="indicator-row">
+                        <span>RSI:</span>
+                        <span>20.54</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>MACD:</span>
+                        <span>死叉 📉</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>趋势:</span>
+                        <span>空头 🔴</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-card sell-signal">
+                <div class="card-header">
+                    <div class="symbol-name">比特币</div>
+                    <div class="signal-badge sell">SELL</div>
+                </div>
+                <div class="price">$68,463.7900</div>
+                <div class="pattern">🔸 蔡森形态: 下降三角形</div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill medium" style="width: 65%"></div>
+                </div>
+                <small>置信度: 65%</small>
+
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-label">📍 入场区间</div>
+                        <div class="detail-value">68463.79 - 70392.94</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🎯 目标位</div>
+                        <div class="detail-value">67094.51 / 65040.60</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🛑 止损位</div>
+                        <div class="detail-value">71800.80</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">⏱️ 时间框架</div>
+                        <div class="detail-value">1H</div>
+                    </div>
+                </div>
+
+                <div class="indicators">
+                    <div class="indicator-row">
+                        <span>RSI:</span>
+                        <span>40.54</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>MACD:</span>
+                        <span>死叉 📉</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>趋势:</span>
+                        <span>空头 🔴</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-card sell-signal">
+                <div class="card-header">
+                    <div class="symbol-name">以太坊</div>
+                    <div class="signal-badge sell">SELL</div>
+                </div>
+                <div class="price">$1,960.7700</div>
+                <div class="pattern">🔸 蔡森形态: 下降三角形</div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill medium" style="width: 65%"></div>
+                </div>
+                <small>置信度: 65%</small>
+
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-label">📍 入场区间</div>
+                        <div class="detail-value">1960.77 - 2061.88</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🎯 目标位</div>
+                        <div class="detail-value">1921.55 / 1862.73</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🛑 止损位</div>
+                        <div class="detail-value">2103.12</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">⏱️ 时间框架</div>
+                        <div class="detail-value">1H</div>
+                    </div>
+                </div>
+
+                <div class="indicators">
+                    <div class="indicator-row">
+                        <span>RSI:</span>
+                        <span>32.42</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>MACD:</span>
+                        <span>死叉 📉</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>趋势:</span>
+                        <span>空头 🔴</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-card sell-signal">
+                <div class="card-header">
+                    <div class="symbol-name">标普500ETF</div>
+                    <div class="signal-badge sell">SELL</div>
+                </div>
+                <div class="price">$681.7500</div>
+                <div class="pattern">🔸 蔡森形态: M头(双顶)</div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill high" style="width: 70%"></div>
+                </div>
+                <small>置信度: 70%</small>
+
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-label">📍 入场区间</div>
+                        <div class="detail-value">681.75 - 681.75</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🎯 目标位</div>
+                        <div class="detail-value">668.12 / 647.66</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🛑 止损位</div>
+                        <div class="detail-value">695.38</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">⏱️ 时间框架</div>
+                        <div class="detail-value">1H</div>
+                    </div>
+                </div>
+
+                <div class="indicators">
+                    <div class="indicator-row">
+                        <span>RSI:</span>
+                        <span>100.00</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>MACD:</span>
+                        <span>死叉 📉</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>趋势:</span>
+                        <span>空头 🔴</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-card sell-signal">
+                <div class="card-header">
+                    <div class="symbol-name">纳斯达克100ETF</div>
+                    <div class="signal-badge sell">SELL</div>
+                </div>
+                <div class="price">$601.9200</div>
+                <div class="pattern">🔸 蔡森形态: M头(双顶)</div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill high" style="width: 70%"></div>
+                </div>
+                <small>置信度: 70%</small>
+
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-label">📍 入场区间</div>
+                        <div class="detail-value">601.92 - 601.92</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🎯 目标位</div>
+                        <div class="detail-value">589.88 / 571.82</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🛑 止损位</div>
+                        <div class="detail-value">613.96</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">⏱️ 时间框架</div>
+                        <div class="detail-value">1H</div>
+                    </div>
+                </div>
+
+                <div class="indicators">
+                    <div class="indicator-row">
+                        <span>RSI:</span>
+                        <span>100.00</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>MACD:</span>
+                        <span>死叉 📉</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>趋势:</span>
+                        <span>空头 🔴</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-card sell-signal">
+                <div class="card-header">
+                    <div class="symbol-name">罗素2000ETF</div>
+                    <div class="signal-badge sell">SELL</div>
+                </div>
+                <div class="price">$262.9600</div>
+                <div class="pattern">🔸 蔡森形态: M头(双顶)</div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill high" style="width: 70%"></div>
+                </div>
+                <small>置信度: 70%</small>
+
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-label">📍 入场区间</div>
+                        <div class="detail-value">262.96 - 262.96</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🎯 目标位</div>
+                        <div class="detail-value">257.70 / 249.81</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🛑 止损位</div>
+                        <div class="detail-value">268.22</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">⏱️ 时间框架</div>
+                        <div class="detail-value">1H</div>
+                    </div>
+                </div>
+
+                <div class="indicators">
+                    <div class="indicator-row">
+                        <span>RSI:</span>
+                        <span>100.00</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>MACD:</span>
+                        <span>死叉 📉</span>
+                    </div>
+                    <div class="indicator-row">
+                        <span>趋势:</span>
+                        <span>空头 🔴</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>🔄 页面每30分钟自动刷新 | 蔡森技术分析系统 v1.0</p>
+            <p>⚠️ 本系统仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+        </div>
+    </div>
+</body>
+</html>
