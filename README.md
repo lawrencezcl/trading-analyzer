@@ -36,7 +36,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/trading-analyzer.git
+git clone https://github.com/lawrencezcl/trading-analyzer.git
 cd trading-analyzer
 
 # 使用 docker-compose 启动
@@ -53,7 +53,7 @@ docker-compose down
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/trading-analyzer.git
+git clone https://github.com/lawrencezcl/trading-analyzer.git
 cd trading-analyzer
 
 # 安装依赖
