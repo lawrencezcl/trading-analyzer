@@ -1,0 +1,35 @@
+# 实时数据 API 配置
+# Real-time Data API Configuration
+# 创建于: 2026-02-22
+
+## API Keys
+
+### Finnhub
+api_key: d6476nhr01ql6dj2ekegd6476nhr01ql6dj2ekf0
+base_url: https://finnhub.io/api/v1
+docs: https://finnhub.io/docs/api
+
+### Twelve Data
+api_key: f5491ce160e64101a960e19eb8363f38
+base_url: https://api.twelvedata.com
+docs: https://twelvedata.com/docs
+
+### Alpha Vantage
+api_key: IUO07N60XUPUHNTL
+base_url: https://www.alphavantage.co/query
+docs: https://www.alphavantage.co/documentation/
+
+### Tavily (AI 搜索)
+api_key: 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
+base_url: https://api.tavily.com
+docs: https://docs.tavily.com
+
+## Telegram Bot (备用)
+bot_username: @qiblafestbot
+bot_token: 8074023086:AAFARIEvDP4q0s9VB2uyp9xPOhlFsI8KCpg
+
+## 功能覆盖
+- ✅ 美股实时行情 (Finnhub)
+- ✅ 全球股票/外汇/加密货币 (Twelve Data)
+- ✅ 股票技术指标/基本面 (Alpha Vantage)
+- ✅ AI 增强搜索 (Tavily)

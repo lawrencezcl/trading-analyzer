@@ -1,0 +1,18 @@
+{
+  "initialized": true,
+  "init_time": "2026-02-22T18:28:00+08:00",
+  "mode": "jarvis",
+  "modules": {
+    "long_term_memory": { "enabled": true, "status": "active" },
+    "voice_wakeup": { "enabled": true, "status": "active", "wake_words": ["龙虾", "OpenClaw", "贾维斯"] },
+    "jarvis_core": { "enabled": true, "status": "active" },
+    "persistent_agent": { "enabled": true, "status": "active" },
+    "self_learning": { "enabled": true, "status": "active" }
+  },
+  "memory_policy": {
+    "retention": "permanent",
+    "forbid_reset": true,
+    "forbid_clear": true
+  },
+  "version": "JARVIS-CORE-v1.0"
+}

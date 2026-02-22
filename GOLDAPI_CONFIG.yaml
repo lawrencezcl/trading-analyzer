@@ -1,0 +1,14 @@
+# GoldAPI.io 配置
+# 创建于: 2026-02-22
+
+api_key: goldapi-72cmsmlxs0po2-io
+base_url: https://www.goldapi.io/api
+
+## 支持的品种
+- XAU (黄金)
+- XAG (白银)
+- XPT (铂金)
+- XPD (钯金)
+
+## 免费额度
+- 100 calls/day

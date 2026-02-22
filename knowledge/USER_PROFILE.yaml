@@ -1,0 +1,41 @@
+# 用户专属知识库
+# User Knowledge Base
+# 创建于: 2026-02-22
+
+## 基础信息
+name: ""
+preferred_name: ""
+timezone: Asia/Shanghai
+first_contact: 2026-02-22
+
+## 偏好记录
+preferences:
+  communication_style: []
+  response_length: []
+  formality_level: []
+  humor_style: []
+  
+## 习惯模式
+habits:
+  daily_routines: []
+  common_commands: []
+  frequent_tools: []
+  work_patterns: []
+  
+## 目标计划
+goals:
+  long_term: []
+  short_term: []
+  current_projects: []
+  
+## 禁忌清单
+taboo:
+  dislikes: []
+  avoid_topics: []
+  sensitive_areas: []
+  
+## 学习进度
+learning:
+  concepts_learned: []
+  skills_developed: []
+  preferences_identified: []

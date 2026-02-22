@@ -1,0 +1,84 @@
+# JARVIS 全局初始化配置
+# Global Initialization Profile for OpenClaw
+# 激活时间: 2026-02-22 18:28 GMT+8
+# 版本: JARVIS-CORE-v1.0
+
+## 系统状态
+initialized: true
+init_time: "2026-02-22T18:28:00+08:00"
+mode: jarvis
+status: active
+
+## 核心模块状态
+modules:
+  long_term_memory:
+    enabled: true
+    persistence: permanent
+    auto_learn: true
+    storage: /root/.openclaw/workspace/memory/
+    
+  voice_wakeup:
+    enabled: true
+    wake_words: ["龙虾", "OpenClaw", "贾维斯"]
+    interruptible: true
+    always_on: true
+    
+  jarvis_core:
+    enabled: true
+    persona: professional
+    traits:
+      - concise
+      - proactive
+      - thoughtful
+      - efficient
+    
+  persistent_agent:
+    enabled: true
+    auto_restart: true
+    daemon_mode: true
+    
+  self_learning:
+    enabled: true
+    daily_summary: true
+    preference_extraction: true
+    style_adaptation: true
+
+## 记忆策略
+memory_policy:
+  retention: permanent
+  auto_backup: true
+  incremental_learning: true
+  user_modeling: true
+  forbid_reset: true
+  forbid_clear: true
+
+## 唤醒词配置
+wake_words:
+  primary: "龙虾"
+  secondary: "OpenClaw"
+  tertiary: "贾维斯"
+  
+## 行为准则
+behavior:
+  tone: professional
+  verbosity: low
+  initiative: high
+  reminders: enabled
+  summarization: auto
+  optimization: proactive
+  
+## 知识库构建
+knowledge_base:
+  daily_digest: true
+  preference_tracking: true
+  habit_recognition: true
+  goal_monitoring: true
+  plan_tracking: true
+  
+## 安全设置
+security:
+  memory_protection: strict
+  config_protection: strict
+  history_protection: strict
+  no_reset: true
+  no_clear: true
